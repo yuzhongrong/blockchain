@@ -1,0 +1,12 @@
+##测试
+#ltc:
+#  rpc:
+#    user: admin
+#    password: admin123
+#    url: http://120.79.243.120:8332
+
+ltc:
+  rpc:
+    user: eLEYRinA
+    password: Fk8UzEEJZXvccdff94ZjAuVPxUCGuFag
+    url: http://184.105.242.147:8090

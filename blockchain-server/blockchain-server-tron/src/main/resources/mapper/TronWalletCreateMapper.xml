@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blockchain.server.tron.mapper.TronWalletCreateMapper">
+    <resultMap id="TronWalletOutMap" type="com.blockchain.server.tron.dto.wallet.TronWalletOutDto">
+        <result property="id" column="id"/>
+        <result property="addr" column="addr"/>
+        <result property="tokenSymbol" column="token_symbol"/>
+        <result property="tokenDecimals" column="token_decimals"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+    <resultMap id="TronWalletCreateMap" type="com.blockchain.server.tron.entity.TronWalletCreate">
+        <result property="id" column="id"/>
+        <result property="addr" column="addr"/>
+        <result property="hexAddr" column="hex_addr"/>
+        <result property="tokenAddr" column="token_addr"/>
+        <result property="tokenSymbol" column="token_symbol"/>
+        <result property="privateKey" column="private_key"/>
+        <result property="remark" column="remark"/>
+        <result property="status" column="status"/>
+    </resultMap>
+    <sql id="tableName">dapp_tron_wallet_create</sql>
+
+    <select id="listByTokenSymbol" resultMap="TronWalletCreateMap">
+        SELECT id,addr,hex_addr,token_addr,token_symbol,remark,private_key,remark,status
+        FROM
+        <include refid="tableName"/>
+        <where>
+            <if test="tokenSymbol != null">
+                AND token_symbol = #{tokenSymbol}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateStatusByAddr" parameterType="java.lang.String">
+        update
+        <include refid="tableName"/>
+        set
+        status = #{status}
+        where
+        addr = #{addr}
+    </update>
+
+    <update id="updateRemarkByAddr" parameterType="java.lang.String">
+        update
+        <include refid="tableName"/>
+        set
+        remark = #{remark}
+        where
+        addr = #{addr}
+        and
+        remark != #{remark}
+    </update>
+
+</mapper>

@@ -1,0 +1,4 @@
+jwt:
+  secret: YWJjMTIZXXDUOBIT
+  expiration: 20000
+  header: token

@@ -1,0 +1,28 @@
+feigesms:
+  closed: true
+  timeout: 5
+  URL: http://api.feige.ee/SmsService/Inter
+  Account: 132340556xx
+  Pwd: 51931a1bc0xx
+  TemplateId_ZH_CN: 37940
+  TemplateId_ZH_HK: 37922
+  TemplateId_EN_US: 37913
+  SignId_ZH_CN: 38832
+  SignId_EN_US: 38832
+  TemplateId_OUT: 38804
+
+
+#feigesms:
+#  closed: false
+#  timeout: 5
+#  URL: http://api.feige.ee/SmsService/Inter
+#  Account: 13234055681
+#  Pwd: 51931a1bc069cd1c42de93bae
+#  TemplateId_ZH_CN: 37940
+#  TemplateId_ZH_HK: 37922
+#  TemplateId_EN_US: 37913
+#  SignId_ZH_CN: 38832
+#  SignId_EN_US: 38832
+#  TemplateId_OUT: 38804
+
+

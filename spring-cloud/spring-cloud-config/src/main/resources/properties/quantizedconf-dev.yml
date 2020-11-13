@@ -1,0 +1,9 @@
+quantized:
+  app-addUrl: http://${tx-host}:8129/tradingOn/addSubscribe
+  app-unUrl: http://${tx-host}:8129/tradingOn/unSubscribe
+
+
+
+#quantized:
+#  app-addUrl: http://172.16.1.42:8129/tradingOn/addSubscribe
+#  app-unUrl: http://172.31.118.224:8129/tradingOn/unSubscribe

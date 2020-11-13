@@ -1,0 +1,19 @@
+# 测试网点
+#rpc_url: https://api.shasta.trongrid.io/
+
+# tron正式网点
+rpc_url: https://api.trongrid.io/
+version: v1/
+wallet: wallet/
+accounts: accounts/
+get_account: getaccount
+assets: assets/
+transactions: /transactions
+transfer_asset: transferasset
+create_transaction: createtransaction
+sign: gettransactionsign
+broadcast: broadcasttransaction
+get_transaction: gettransactionbyid
+create_account_address: generateaddress
+create_account: createaccount
+trigger_smart_contract: triggersmartcontract

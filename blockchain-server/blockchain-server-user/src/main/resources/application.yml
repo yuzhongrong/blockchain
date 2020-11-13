@@ -1,0 +1,6 @@
+#日志配置路径
+logging:
+    config: classpath:logback/logback-${spring.cloud.config.profile}.xml
+
+#实名认证通过，通知ore服务增加抽奖机会
+notifyOreUrl: http://${tx-host}:8302/inner/addUserAuthentication?userId=

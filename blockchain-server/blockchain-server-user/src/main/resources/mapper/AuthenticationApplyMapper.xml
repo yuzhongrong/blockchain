@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blockchain.server.user.mapper.AuthenticationApplyMapper">
+	<resultMap id="AppUUserLoinLogMap" type="com.blockchain.server.user.entity.AuthenticationApply">
+		<result property="id" column="id"/>
+		<result property="userId" column="user_id"/>
+		<result property="type" column="type"/>
+		<result property="idNumber" column="id_number" />
+		<result property="realName" column="real_name"/>
+		<result property="fileUrl1" column="file_url1"/>
+		<result property="fileUrl2" column="file_url2"/>
+		<result property="fileUrl3" column="file_url3"/>
+		<result property="status" column="status"/>
+		<result property="createTime" column="create_time"/>
+		<result property="modifyTime" column="modify_time"/>
+	</resultMap>
+
+	<resultMap id="authenticationApplyMap" type="com.blockchain.server.user.dto.AuthenticationApplyDto">
+		<result property="userId" column="user_id"/>
+		<result property="idType" column="id_type"/>
+		<result property="idNumber" column="id_number" />
+		<result property="fileUrl1" column="file_url1"/>
+		<result property="fileUrl2" column="file_url2"/>
+		<result property="lowStatus" column="low_status"/>
+		<result property="lowCreateTime" column="low_create_time"/>
+		<result property="fileUrl" column="file_url"/>
+		<result property="highStatus" column="high_status"/>
+		<result property="HighCreateTime" column="high_create_time"/>
+	</resultMap>
+
+	<sql id="tableName">dapp_u_authentication_apply</sql>
+
+	<select id="selectAuthenticationApply" parameterType="java.lang.String" resultMap="authenticationApplyMap">
+		SELECT
+		aa.user_id, aa.type id_type, aa.id_number, aa.create_time low_create_time, aa.status low_status, aa.file_url1, aa.file_url2, haa.file_url, haa.status high_status, haa.create_time high_create_time
+		FROM <include refid="tableName"/> aa
+		LEFT JOIN dapp_u_high_authentication_apply haa
+		ON aa.user_id = haa.user_id
+		WHERE aa.user_id = #{userId};
+	</select>
+
+</mapper>
